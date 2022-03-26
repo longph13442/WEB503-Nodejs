@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 import mongoose from "mongoose";
 import productRouter from "../router/product";
+import categoryRouter from "../router/category";
 const app = express();
 
 // used middlewares
@@ -13,7 +14,8 @@ app.use(morgan('tiny'));
 app.use(express.json()); //formendcode : upload ảnh
 
 // router
-app.use(productRouter);
+app.use("/api", productRouter);
+app.use("/api",categoryRouter);
 
 // connect datab
 mongoose.connect('mongodb://127.0.0.1:27017/web16306')
